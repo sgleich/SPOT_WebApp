@@ -10,11 +10,11 @@
 \
 **To run this app, there must be two subdirectories within the main directory.**\
 /SPOTWebApp/static/{image.png}   - To store image being displayed on the html pages\
-/SPOTWebApp/templates/{home.html}  - To store all html templates being used in the web app (i.e. home.html, plot.html, chlorophyte.html, etc...)\
+/SPOTWebApp/templates/{home.html}  - To store all html templates being used in the web app (i.e. home.html, plot.html, Chlorophyte.html, etc...)\
 \
-**You also must have the dataset and the main python script in the main directory.**\
+**You also must have the dataset(s) and the main python script in the main directory.**\
 /SPOTWebApp/{SPOT_ASVs_CLR.csv}\
-/SPOTWebApp/{app.py}
+/SPOTWebApp/{flask_app.py}
 
 ## Required packages
 This web app requires the use of functions in pandas, os, matplotlib, flask, io, and base64 and was created in python 3.7 using the PyCharm IDE. 
