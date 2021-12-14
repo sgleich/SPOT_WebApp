@@ -4,11 +4,14 @@
 \
 **This web app allows the user to specify a taxonomic group of interest and a depth. Then, the web app summarizes and visualizes 18S tag-sequencing data that were collected at the San Pedro Ocean Time-Series (SPOT) site based on the user input.** 
 \
-To run this app, there must be two subdirectories within the main directory\
+\
+**To run this app, there must be two subdirectories within the main directory.**\
 /SPOTWebApp/static/{image.png}   - To store image being displayed on the html pages\
 /SPOTWebApp/templates/{home.html}  - To store all html templates being used in the web app (i.e. home.html, plot.html, chlorophyte.html, etc...)\
-You also must have the dataset and the main python script in the main directory\
-/SPOTWeb
+\
+**You also must have the dataset and the main python script in the main directory.**\
+/SPOTWebApp/{SPOT_ASVs_CLR.csv}\
+/SPOTWebApp/{app.py}
 
 ## Required packages
 This web app requires the use of functions in pandas, os, matplotlib, flask, io, and base64 and was created in python 3.7 using the PyCharm IDE. 
