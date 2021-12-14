@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MAST</title>
+    </head>
+    <body>
+        <h1>MAST</h1>
+        <img src="{{url_for('static', filename='SPOT_Artwork_250.png')}}" align="middle" />
+        <form class = "ey" method="POST" action="{{ url_for('mast') }}"> <!-- note action -->
+        <select name="tax2"> <!-- note the name -->
+        <option value="None">Select MAST Taxa</option>
+        <option value="MAST-1">MAST-1</option>
+        <option value="MAST-2">MAST-2</option>
+        <option value="MAST-3">MAST-3</option>
+        <option value="MAST-4">MAST-4</option>
+        <option value="MAST-6">MAST-6</option>
+        <option value="MAST-7">MAST-7</option>
+        <option value="MAST-8">MAST-8</option>
+        <option value="MAST-9">MAST-9</option>
+        <option value="MAST-10">MAST-10</option>
+        <option value="MAST-11">MAST-11</option>
+        <option value="MAST-12">MAST-12</option>
+        <option value="MAST-25">MAST-25</option>
+        </select>
+            <form class = "ey" method="POST" action="{{ url_for('mast') }}"> <!-- note action -->
+        <select name="Depth"> <!-- note the name -->
+        <option value="None">Select Depth</option>
+        <option value="Surface">Surface</option>
+        <option value="DCM">DCM</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('mast') }}"> <!-- note action -->
+        <select name="Normalization"> <!-- note the name -->
+        <option value="None">Select Normalization Method</option>
+        <option value="CLR">CLR</option>
+        <option value="TSS">TSS</option>
+        </select>
+            <input type="submit" value="Submit">
+</form>

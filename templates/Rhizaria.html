@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rhizaria</title>
+    </head>
+    <body>
+        <h1>Rhizaria</h1>
+        <img src="{{url_for('static', filename='SPOT_Artwork_250.png')}}" align="middle" />
+        <form class = "ey" method="POST" action="{{ url_for('rhizaria') }}"> <!-- note action -->
+        <select name="tax2"> <!-- note the name -->
+        <option value="None">Select Rhizaria Taxa</option>
+        <option value="Acantharea">Acantharea</option>
+        <option value="Arthracanthida-Symphyacanthida_XX">Arthracanthida-Symphyacanthida_XX</option>
+        <option value="Bigelowiella">Bigelowiella</option>
+        <option value="Cercozoa_XXXX">Cercozoa_XXXX</option>
+        <option value="Chaunacanthida_XX">Chaunacanthida_XX</option>
+        <option value="Chlorarachnida_XX">Chlorarachnida_XX</option>
+        <option value="Cryothecomonas">Cryothecomonas</option>
+        <option value="Discomonas">Discomonas</option>
+        <option value="Filosa-Imbricatea_XXX">Filosa-Imbricatea_XXX</option>
+        <option value="Filosa-Thecofilosea_XXX">Filosa-Thecofilosea_XXX</option>
+        <option value="Hexaconus">Hexaconus</option>
+        <option value="Lithomelissa">Lithomelissa</option>
+        <option value="Lychnaspis">Lychnaspis</option>
+        <option value="Marimonadida_XX">Marimonadida_XX</option>
+        <option value="Minorisa">Minorisa</option>
+        <option value="Nassellaria_XX">Nassellaria_XX</option>
+        <option value="Partenskyella">Partenskyella</option>
+        <option value="Pseudopirsonia">Pseudopirsonia</option>
+        <option value="RAD-A">RAD-A</option>
+        <option value="RAD-B">RAD-B</option>
+        <option value="RAD-C">RAD-C</option>
+        <option value="Sticholonche">Sticholonche</option>
+        <option value="Symphyacanthida">Symphyacanthida</option>
+        <option value="Ventrifissuridae_X">Ventrifissuridae_X</option>
+        <option value="Unknown">Unknown</option>
+        </select>
+         <form class = "ey" method="POST" action="{{ url_for('rhizaria') }}"> <!-- note action -->
+        <select name="Depth"> <!-- note the name -->
+        <option value="None">Select Depth</option>
+        <option value="Surface">Surface</option>
+        <option value="DCM">DCM</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('rhizaria') }}"> <!-- note action -->
+        <select name="Normalization"> <!-- note the name -->
+        <option value="None">Select Normalization Method</option>
+        <option value="CLR">CLR</option>
+        <option value="TSS">TSS</option>
+        </select>
+            <input type="submit" value="Submit">
+</form>
+

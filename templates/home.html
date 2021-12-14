@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SPOTWebApp</title>
+    </head>
+    <body>
+        <h1>SPOT Microbial Eukaryotes</h1>
+        <h3>Welcome to the San Pedro Time-Series (SPOT) interactive web app! This web app loads, subsets, analyzes,
+            and visualizes 18S amplicon sequence variant (ASV) data that were collected during monthly sampling
+            procedures at the USC <a href="https://dornsife.usc.edu/spot/">SPOT</a> site from 2003-2018.</h3>
+        <h3>The ASVs used in this web app were created using <a href="https://www.nature.com/articles/nmeth.3869">DADA2</a> (Callahan et al. 2016)
+            and taxonomy was assigned to the ASVs using the <a href="https://academic.oup.com/nar/article/41/D1/D597/1064851?login=true">PR2</a> database (Guillou et al. 2012). The ASV dataset that was used in this web app was prefiltered so that 1.) singletons and doubletons were removed and 2.)
+ASVs were removed when a given ASV had 0s for > 90% of the samples at a given depth.</h3>
+        <img src="{{url_for('static', filename='SPOT_Artwork_250.png')}}" align="middle" />
+        <form class = "ey" method="POST" action="{{ url_for('category') }}"> <!-- note action -->
+        <select name="tax"> <!-- note the name -->
+        <option value="None">Select Taxa</option>
+        <option value="Chlorophyte">Chlorophyte</option>
+        <option value="Ciliate">Ciliate</option>
+        <option value="Diatom">Diatom</option>
+        <option value="Dinoflagellate">Dinoflagellate</option>
+        <option value="Haptophyte">Haptophyte</option>
+        <option value="MAST">MAST</option>
+        <option value="Rhizaria">Rhizaria</option>
+        </select>
+            <input type="submit" value="Submit">
+</form>

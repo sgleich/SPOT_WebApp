@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Ciliate</title>
+    </head>
+    <body>
+        <h1>Ciliates</h1>
+        <img src="{{url_for('static', filename='SPOT_Artwork_250.png')}}" align="middle" />
+        <form class = "ey" method="POST" action="{{ url_for('ciliate') }}"> <!-- note action -->
+        <select name="tax2"> <!-- note the name -->
+        <option value="None">Select Ciliate Taxa</option>
+        <option value="Amphorides">Amphorides</option>
+        <option value="Apostomatia_XX">Apostomatia_XX</option>
+        <option value="Askenasia">Askenasia</option>
+        <option value="Bergeriella">Bergeriella</option>
+        <option value="Didiniidae_X">Didiniidae_X</option>
+        <option value="Eutintinnus">Eutintinnus</option>
+        <option value="Leegaardiella">Leegaardiella</option>
+        <option value="Leegaardiellidae_A_X">Leegaardiellidae_A_X</option>
+        <option value="Litostomatea_XXX">Litostomatea_XXX</option>
+        <option value="Lynnella">Lynnella</option>
+        <option value="Pelagostrobilidium">Pelagostrobilidium</option>
+        <option value="Peritromus">Peritromus</option>
+        <option value="Pseudotontonia">Pseudotontonia</option>
+        <option value="Rimostrombidium_A">Rimostrombidium_A</option>
+        <option value="Spirotontonia">Spirotontonia</option>
+        <option value="Steenstrupiella">Steenstrupiella</option>
+        <option value="Strombidinopsis">Strombidinopsis</option>
+        <option value="Strombidiidae">Strombidiidae</option>
+        <option value="Strombidiida">Strombidiida</option>
+        <option value="Strombidium">Strombidium</option>
+        <option value="Tintinnidae_X">Tintinnidae_X</option>
+        <option value="Tintinnidium">Tintinnidium</option>
+        <option value="Tontoniidae_A_X">Tontoniidae_A_X</option>
+        <option value="Tontoniidae_B_X">Tontoniidae_B_X</option>
+        <option value="Urotricha">Urotricha</option>
+        <option value="Unknown">Unknown</option>
+        </select>
+             <form class = "ey" method="POST" action="{{ url_for('ciliate') }}"> <!-- note action -->
+        <select name="Depth"> <!-- note the name -->
+        <option value="None">Select Depth</option>
+        <option value="Surface">Surface</option>
+        <option value="DCM">DCM</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('ciliate') }}"> <!-- note action -->
+        <select name="Normalization"> <!-- note the name -->
+        <option value="None">Select Normalization Method</option>
+        <option value="CLR">CLR</option>
+        <option value="TSS">TSS</option>
+        </select>
+
+            <input type="submit" value="Submit">
+
+</form>
+

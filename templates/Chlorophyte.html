@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chlorophyte</title>
+    </head>
+    <body>
+        <h1>Chlorophytes</h1>
+        <img src="{{url_for('static', filename='SPOT_Artwork_250.png')}}" align="middle" />
+        <form class = "ey" method="POST" action="{{ url_for('chlorophyte') }}"> <!-- note action -->
+        <select name="tax2"> <!-- note the name -->
+        <option value="None">Select Chlorophyte Taxa</option>
+        <option value="Bathycoccus">Bathycoccus</option>
+        <option value="Chlorodendrales_XX">Chlorodendrales_XX</option>
+        <option value="Chloroparvula">Chloroparvula</option>
+        <option value="Chloropicon">Chloropicon</option>
+        <option value="Crustomastix">Crustomastix</option>
+        <option value="Crustomastigaceae-AB">Crustomastigaceae-AB</option>
+        <option value="Dolichomastigaceae-A">Dolichomastigaceae-A</option>
+        <option value="Dolichomastix">Dolichomastix</option>
+        <option value="Halosphaera">Halosphaera</option>
+        <option value="Mamiella">Mamiella</option>
+        <option value="Mantoniella">Mantoniella</option>
+        <option value="Micromonas">Micromonas</option>
+        <option value="Nephroselmis">Nephroselmis</option>
+        <option value="Ostreococcus">Ostreococcus</option>
+        <option value="Prasino-Clade-9_XXX">Prasino-Clade-9_XXX</option>
+        <option value="Prasinococcales-Clade-B_X Prasinoderma">Prasinococcales-Clade-B_X Prasinoderma</option>
+        <option value="Prasinopapilla">Prasinopapilla</option>
+        <option value="Pterosperma">Pterosperma</option>
+        <option value="Pyramimonadales_XXX">Pyramimonadales_XXX</option>
+        <option value="Pyramimonas">Pyramimonas</option>
+        <option value="Unknown">Unknown</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('chlorophyte') }}"> <!-- note action -->
+        <select name="Depth"> <!-- note the name -->
+        <option value="None">Select Depth</option>
+        <option value="Surface">Surface</option>
+        <option value="DCM">DCM</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('chlorophyte') }}"> <!-- note action -->
+        <select name="Normalization"> <!-- note the name -->
+        <option value="None">Select Normalization Method</option>
+        <option value="CLR">CLR</option>
+        <option value="TSS">TSS</option>
+        </select>
+            <input type="submit" value="Submit">
+</form>

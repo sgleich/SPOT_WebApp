@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Dinoflagellate</title>
+    </head>
+    <body>
+        <h1>Dinoflagellates</h1>
+        <img src="{{url_for('static', filename='SPOT_Artwork_250.png')}}" align="middle" />
+        <form class = "ey" method="POST" action="{{ url_for('dinoflagellate') }}"> <!-- note action -->
+        <select name="tax2"> <!-- note the name -->
+        <option value="None">Select Dinoflagellate Taxa</option>
+        <option value="Akashiwo">Akashiwo</option>
+        <option value="Alexandrium">Alexandrium</option>
+        <option value="Azadinium">Azadinium</option>
+        <option value="Balechina">Balechina</option>
+        <option value="Blastodinium">Blastodinium</option>
+        <option value="Ceratoperidinium">Ceratoperidinium</option>
+        <option value="Chytriodinium">Chytriodinium</option>
+        <option value="Dino-Group-I">Dino-Group-I</option>
+        <option value="Dino-Group-II">Dino-Group-II</option>
+        <option value="Dino-Group-III">Dino-Group-III</option>
+        <option value="Dinophysis">Dinophysis</option>
+        <option value="Euduboscquella">Euduboscquella</option>
+        <option value="Ellobiopsis"> Ellobiopsis</option>
+        <option value="Goniodoma">Goniodoma</option>
+        <option value="Gonyaulax">Gonyaulax</option>
+        <option value="Gymnodinium">Gymnodinium</option>
+        <option value="Gyrodinium">Gyrodinium</option>
+        <option value="Hematodinium">Hematodinium</option>
+        <option value="Heterocapsa">Heterocapsa</option>
+        <option value="Ichthyodinium">Ichthyodinium</option>
+        <option value="Karlodinium">Karlodinium</option>
+        <option value="Kofoidinium">Kofoidinium</option>
+        <option value="Lepidodinium">Lepidodinium</option>
+        <option value="Lingulodinium">Lingulodinium</option>
+        <option value="Margalefidinium">Margalefidinium</option>
+        <option value="Noctiluca">Noctiluca</option>
+        <option value="Paragymnodinium">Paragymnodinium</option>
+        <option value="Pelagodinium">Pelagodinium</option>
+        <option value="Phalachroma">Phalachroma</option>
+        <option value="Prorocentrum">Prorocentrum</option>
+        <option value="Proterythropsis">Proterythropsis</option>
+        <option value="Protoceratium">Protoceratium</option>
+        <option value="Protoperidinium">Protoperidinium</option>
+        <option value="Syndiniales_XXX">Syndiniales_XXX</option>
+        <option value="Syndinium">Syndinium</option>
+        <option value="Thoracosphaeraceae_X">Thoracosphaeraceae_X</option>
+        <option value="Torodinium">Torodinium</option>
+        <option value="Tripos">Tripos</option>
+        <option value="Warnowia">Warnowia</option>
+        <option value="Zooxanthella">Zooxanthella</option>
+        <option value="Unknown">Unknown</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('dinoflagellate') }}"> <!-- note action -->
+        <select name="Depth"> <!-- note the name -->
+        <option value="None">Select Depth</option>
+        <option value="Surface">Surface</option>
+        <option value="DCM">DCM</option>
+        </select>
+        <form class = "ey" method="POST" action="{{ url_for('dinoflagellate') }}"> <!-- note action -->
+        <select name="Normalization"> <!-- note the name -->
+        <option value="None">Select Normalization Method</option>
+        <option value="CLR">CLR</option>
+        <option value="TSS">TSS</option>
+        </select>
+            <input type="submit" value="Submit">
+</form>
+

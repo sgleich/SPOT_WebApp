@@ -1,0 +1,14 @@
+<!doctype html>
+<title>SPOT Summary</title>
+<section>
+  <h2>SPOT Time-Series Summary - {{ depth }}</h2>
+  <img src="data:image/png;base64, {{ plot_url }}">
+
+
+  <div class="text-center">
+  <button type="submit" onclick="window.location.href='{{ url_for( 'home') }}';">Home</button>
+ </div>
+
+
+
+</section>
