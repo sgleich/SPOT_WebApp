@@ -18,6 +18,10 @@
 **You also must have the dataset(s) and the main python script in the main directory.**\
 /SPOTWebApp/{SPOT_ASVs_CLR.csv}\
 /SPOTWebApp/{flask_app.py}
+\
+\
+**NOTE: To successfully make your own web app, you must create a python flask file (e.g. flask_app.py) along with associated html files that the python script can render (see 'templates' directory for html examples).**
+
 
 ## Required packages
 This web app requires the use of functions in pandas, os, matplotlib, flask, io, and base64 and was created in python 3.7 using the PyCharm IDE. 
