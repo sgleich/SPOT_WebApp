@@ -81,7 +81,7 @@ def chlorophyte():
     return render_template('plot.html', plot_url=plot_url,depth=d)
 ```
 ## Visualize
-The visualize function will subset the data according the genus and depth user inputs. The data will then be summarized and plotted for visualization. The chlorophyte example is continued below. The full form of this function will contain all of the genra in each of the broad taxonomic categories (see full script).
+The visualize function will subset the data according the genus and depth user inputs. The data will then be summarized and plotted for visualization. The chlorophyte example is continued below. The full form of this function will contain all of the genra in each of the broad taxonomic categories (see full script - flask_app.py).
 ```
 @app.route("/viz")
 def viz(category, tax,depth,method):
