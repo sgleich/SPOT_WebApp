@@ -49,30 +49,31 @@ The category function will render the html template based on the taxonomic categ
 def category():
     selectValue = request.form.get('tax')
     if selectValue=="Dinoflagellate":
-        return render_template('dinoflagellate.html')
+        return render_template('Dinoflagellate.html')
     if selectValue=="Diatom":
-        return render_template('diatom.html')
+        return render_template('Diatom.html')
     if selectValue=="Ciliate":
-        return render_template('ciliate.html')
+        return render_template('Ciliate.html')
     if selectValue=="MAST":
-        return render_template('mast.html')
+        return render_template('MAST.html')
     if selectValue=="Chlorophyte":
-        return render_template('chlorophyte.html')
+        return render_template('Chlorophyte.html')
     if selectValue=="Haptophyte":
-        return render_template('haptophyte.html')
+        return render_template('Haptophyte.html')
     if selectValue=="Rhizaria":
-        return render_template('rhizaria.html')
+        return render_template('Rhizaria.html')
 ```
 ## Taxonomic Group
-```
-Separate functions will be needed for each taxonomic group of interest (i.e. one for each of the 7 groups listed above). Here is an example of one of the the functions (i.e. chlorophyte). This function will take a specific chlorophyte genus as input and render the plot html template to show the abundance of the genus over time.  
+Separate functions will be needed for each taxonomic group of interest (i.e. one for each of the 7 groups listed above). Here is an example of one of the the functions (i.e. chlorophyte). This function will take a specific chlorophyte genus as input and render the plot.html template to show the abundance of the genus over time. Notice that this function calls on the 'viz' function (see below). 
+``` 
 @app.route('/chlorophyte',methods=['POST','GET'])
 def chlorophyte():
     session["category"] = "Chlorophyte"
     selectValue = request.form.get('tax2')
     session["tax"] = selectValue
     d = request.form.get('Depth')
-    p = viz("Chlorophyte", selectValue,d)
+    m = request.form.get('Normalization')
+    p = viz("Chlorophyte", selectValue,d,m)
     img = BytesIO()
     p.savefig(img, format='png')
     img.seek(0)
@@ -83,11 +84,18 @@ def chlorophyte():
 The visualize function will subset the data according the genus and depth user inputs. The data will then be summarized and plotted for visualization. The chlorophyte example is continued below. The full form of this function will contain all of the genra in each of the broad taxonomic categories (see full script).
 ```
 @app.route("/viz")
-def viz(category, tax,depth):
+def viz(category, tax,depth,method):
+    # Use dataframe that has the data normalized using the method the user enters. 
+    if method=="CLR":
+        # Load in dataframe
+        df = pd.read_csv("SPOT_ASVs_CLR.csv")
+
+    if method=="TSS":
+        # Load in dataframe
+        df = pd.read_csv("SPOT_ASVs_TSS.csv")
     
-    df = pd.read_csv("SPOT_ASVs.csv")
-    
-    # Subset by genus
+    # Subset data by taxonomy
+    # Chlorophytes
     chloro = ["Halosphaera","Pterosperma","Chloroparvula","Ostreococcus","Mantoniella","Pyramimonas","Micromonas",
               "Nephroselmis","Prasino-Clade-9_XXX","Dolichomastigaceae-A",
               "Pyramimonadales_XXX","Bathycoccus","Prasinopapilla","Chlorodendrales_XX","Mamiella","Dolichomastix",
@@ -102,7 +110,7 @@ def viz(category, tax,depth):
             dfSub = df[df["phylum"] == "Chlorophyta" and df["genus"] not in chloro]
             tax = "Other Chlorophytes"
             
-    # Subset by depth 
+    # Subset the data by depth
     if depth =="Surface":
         dfSurf = dfSub[dfSub["depth"] == "5m"]
         # Group the data by depth and month of year; calculate the mean and sd
@@ -115,15 +123,23 @@ def viz(category, tax,depth):
         dfAvg = (dfDCM.groupby(['month'])['value'].agg(['mean', 'std']).reset_index())
         dfAvg2 = (dfDCM.groupby(['year'])['value'].agg(['mean', 'std']).reset_index())
 
-    # Plot the data
+    # Plot data
     fig = plt.figure()
     ax1 = plt.subplot(1,2,1)
     ax2 = plt.subplot(1,2,2)
     ax1.errorbar("month","mean","std", linestyle='solid', marker='o',data=dfAvg,color="black")
     ax2.errorbar("year", "mean", "std", linestyle='solid', marker='o', data=dfAvg2, color="black")
-    ax1.set(xlabel="Month of Year",ylabel="Mean CLR-Transformed Abundance (+/- SD)",title="Abundance vs. Month",xticks=[1,2,3,4,5,6,7,8,9,10,11,12])
-    ax2.set(xlabel="Year", ylabel="Mean CLR-Transformed Abundance (+/- SD)", title="Abundance vs. Year",xticks=[3, 4, 5, 6, 7, 8, 9, 10, 11,  
-    12,13,14,15,16,17,18],xticklabels=["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"])
+    if method=="CLR":
+        ax1.set(xlabel="Month of Year",ylabel="Mean CLR-Transformed Abundance (+/- SD)",title="Abundance vs. Month",xticks=[1,2,3,4,5,6,7,8,9,10,11,12])
+        ax2.set(xlabel="Year", ylabel="Mean CLR-Transformed Abundance (+/- SD)", title="Abundance vs. Year",xticks=[3, 4, 5, 6, 7, 8, 9, 10, 11,    
+        12,13,14,15,16,17,18],xticklabels=["2003","2004","2005","2006","2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"])
+    if method=="TSS":
+        ax1.set(xlabel="Month of Year", ylabel="Mean TSS-Transformed Abundance (+/- SD)", title="Abundance vs. Month",
+                xticks=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+        ax2.set(xlabel="Year", ylabel="Mean TSS-Transformed Abundance (+/- SD)", title="Abundance vs. Year",
+                xticks=[3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18],
+                xticklabels=["2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013",
+                             "2014", "2015", "2016", "2017", "2018"])
     ax2.tick_params(labelrotation=45)
     fig.suptitle(tax)
     fig.set_size_inches(13.5, 7.25)
