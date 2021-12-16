@@ -2,7 +2,7 @@
 **By:** Samantha Gleich\
 **Last Updated:** December 13, 2021\
 \
-![Optional Text](../master/static/SPOT_Artwork_250.png)
+<img src="/sgleich/SPOT_WebApp/static/SPOT_Artwork_250.png" alt="My cool logo"/>
 
 **This web app allows the user to specify a taxonomic group of interest and a depth. Then, the web app summarizes and visualizes 18S tag-sequencing data that were collected at the San Pedro Ocean Time-Series (SPOT) site based on the user input.** 
 \
